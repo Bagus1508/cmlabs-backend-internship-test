@@ -1,17 +1,23 @@
 <?php
+    // Array yang mendefinisikan aturan kelipatan dan outputnya
+    $rules = [
+        3 => 'Fizz',
+        5 => 'Buzz',
+    ];
 
-for($i = 1; $i <= 100; $i++){ //Deklarasikan terlebih dahulu variabel $i, nama variabel bebas
-    //Lalu buat kondisi menggunakan if-else
-    if ($i % 3 == 0 && $i % 5 == 0) { //Jika $i kelipatan 3 dan 5 maka hasilnya FizzBuzz
-        echo "FizzBuzz\n";
-    } else if($i % 3 == 0) { //Jika $i kelipatan 3 maka hasilnya Fizz
-        echo "Fizz\n";
-    } else if ($i % 5 == 0) { //Jika $i kelipatan 5 maka hasilnya Buzz
-        echo "Buzz\n";
-    } else { //Jika nilai $i tidak ada yang sesuai dengan kondisi diatas maka tampilkan nilai dari variable $i
-        echo $i."\n";
+    // Loop dari 1 sampai 100
+    for ($i = 1; $i <= 100; $i++) {
+        $output = '';
+
+        // Loop melalui aturan yang didefinisikan
+        foreach ($rules as $divisor => $value) {
+            if ($i % $divisor == 0) {
+                $output .= $value;
+            }
+        }
+
+        // Jika tidak ada output, cetak angka dari variabel $i
+        echo $output ?: $i;
+        echo "\n";
     }
-}
-
-
 ?>
